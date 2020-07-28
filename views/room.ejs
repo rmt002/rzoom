@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width-device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Rooms</title>
+</head>
+
+<script>
+    const ROOM_ID = "<%= roomId %>"
+
+    function leaveRoom() {
+        console.log("Leaving room")
+        window.location.pathname = '/'
+    }
+</script>
+
+<script src="https://unpkg.com/peerjs@1.3.1/dist/peerjs.min.js" defer></script>
+<script src="/socket.io/socket.io.js" defer></script>
+<script src="room.js" defer></script>
+
+<body>
+    <div style="margin: 10px 10px 10px 10px ">
+        <button style="float:right; width:100%; font-size:50px; " onclick="leaveRoom()">Leave
+            Room</button>
+    </div>
+    <div style="margin: 10px 10px 10px 10px" id="video-grid"></div>
+</body>
+
+</html>

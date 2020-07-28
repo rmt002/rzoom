@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width-device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Rooms</title>
+</head>
+
+<script>
+    function newMeeting() {
+        console.log("Creating new room")
+        window.location.pathname = '/newRoom'
+    }
+</script>
+
+<body>
+    <div id="video-grid">
+        Welcome to Rooms
+    </div>
+    <button onclick="newMeeting()">New Meeting</button>
+</body>
+
+</html>
