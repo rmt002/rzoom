@@ -1,9 +1,18 @@
 const express = require('express')
 const app = express()
-const server = require('http').Server(app)
+const https = require('https')
+const fs = require('fs')
+const key = fs.readFileSync('encrypt/privatekey.pem')
+const cert = fs.readFileSync('encrypt/certificate.pem')
+
+const options = {
+    key: key,
+    cert: cert
+}
+
+const server = https.createServer(options, app)
 const io = require('socket.io')(server)
 const { v4: uuidV4 } = require('uuid');
-const { userInfo } = require('os');
 
 server.listen(3000, () => {
     console.log("SERVER --> Application is running at 3000")
@@ -15,6 +24,7 @@ app.use(express.static('public'))
 
 //Home page
 app.get('/', (req, res) => {
+    console.log("home")
     res.render('home')
 })
 
